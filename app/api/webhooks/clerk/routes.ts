@@ -1,3 +1,5 @@
+"use server";
+
 /* eslint-disable camelcase */
 import { createUser, deleteUser, updateUser } from "@/lib/action/user.action";
 import { clerkClient } from "@clerk/nextjs/server";
@@ -37,6 +39,7 @@ export async function POST(req: Request) {
 
   // Create a new Svix instance with your secret.
   const wh = new Webhook(WEBHOOK_SECRET);
+  console.log("WEBHOOK_SECRET", WEBHOOK_SECRET);
 
   let evt: WebhookEvent;
 
